@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     auth = {:username => "josephrfarmer", :password => 'b56771b2710e4ac8bc03c25c8c26c82fcbd4cd62'}
-    @repo = HTTParty.get('https://api.github.com/users/josephrfarmer/repos', :basic_auth => auth)
+    @repo = HTTParty.get('https://api.github.com/users/josephrfarmer/repos', :basic_auth => auth).parsed_response
     @user = HTTParty.get('https://api.github.com/users/josephrfarmer', :basic_auth => auth)
   end
 
